@@ -1,4 +1,4 @@
-import { closeMainWindow } from "@raycast/api";
+import { showHUD } from "@raycast/api";
 import { Clipboard } from "@raycast/api";
 
 export default async function Command() {
@@ -13,5 +13,5 @@ export default async function Command() {
 
     await Clipboard.copy(wrappedText);
   }
-  await closeMainWindow({ clearRootSearch: true });
+  await showHUD("SQL List Wrapped");
 }
