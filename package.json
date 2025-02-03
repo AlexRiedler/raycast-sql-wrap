@@ -12,6 +12,12 @@
       "title": "Wrap SQL List",
       "description": "",
       "mode": "no-view"
+    },
+    {
+      "name": "wrap-sql-list-no-quote",
+      "title": "Wrap SQL List (no quotes)",
+      "description": "",
+      "mode": "no-view"
     }
   ],
   "dependencies": {
