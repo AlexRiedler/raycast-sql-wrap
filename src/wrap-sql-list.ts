@@ -1,6 +1,10 @@
 import { closeMainWindow } from "@raycast/api";
 import { Clipboard } from "@raycast/api";
 
+function containsOnlyDigits(str: string): boolean {
+  return /^\d+$/.test(str);
+}
+
 export default async function Command() {
   const text: string | undefined = await Clipboard.readText();
 
@@ -8,10 +12,14 @@ export default async function Command() {
     const wrappedText = text
       .trim()
       .split("\n")
-      .map((l) => "'" + l.trim() + "'")
+      .map((l) => {
+        if (!containsOnlyDigits(l.trim())) {
+          return l.trim();
+        } else {
+          return "'" + l.trim() + "'";
+        }
+      })
       .join(",\n");
-
-    console.log(wrappedText);
 
     await Clipboard.copy(wrappedText);
   }
